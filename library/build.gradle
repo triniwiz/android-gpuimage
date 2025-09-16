@@ -17,7 +17,7 @@ android {
 
         versionCode = VERSION_CODE as int
         versionName = VERSION_NAME
-        ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
+        ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         externalNativeBuild {
             cmake { cppFlags "" }
         }
@@ -68,19 +68,26 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'io.github.triniwiz.android_gpuimage'
+            artifactId = 'gpuimage'
+            version = '2.2.0'
+        }
+    }
+}
+
 afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId = 'io.github.triniwiz.android_gpuimage'
-                artifactId = 'gpuimage'
-                version = '2.2.0'
-
                 from components.release
             }
         }
     }
 }
+
 
 // TODO: Close JCenter on May 1st https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
 // apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/bintray-v1.gradle'
