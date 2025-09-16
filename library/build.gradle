@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace "jp.co.cyberagent.android.gpuimage"
+    ndkVersion "28.2.13676358"
     compileSdkVersion COMPILE_SDK_VERSION as int
 
     defaultConfig {
@@ -26,6 +28,11 @@ android {
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
@@ -53,4 +60,4 @@ ext {
 // apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/bintray-v1.gradle'
 // apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/install-v1.gradle'
 
-apply from: 'https://gist.githubusercontent.com/wasabeef/2f2ae8d97b429e7d967128125dc47854/raw/maven-central-v1.gradle'
+// apply from: 'https://gist.githubusercontent.com/wasabeef/2f2ae8d97b429e7d967128125dc47854/raw/maven-central-v1.gradle'
